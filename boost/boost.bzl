@@ -111,7 +111,6 @@ def boost_deps():
         native.new_http_archive(
             name = "org_lzma_lzma",
             build_file = "@com_github_nelhage_rules_boost//:BUILD.lzma",
-            sha256 = "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb",
             strip_prefix = "xz-5.2.3",
             urls = [
                 "https://%s.dl.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz" % m
@@ -122,10 +121,7 @@ def boost_deps():
     if "boost" not in native.existing_rules():
         native.new_http_archive(
             name = "boost",
-            urls = [
-                "https://%s.dl.sourceforge.net/project/boost/boost/1.67.0/boost_1_67_0.tar.gz" % m
-                for m in SOURCEFORGE_MIRRORS
-            ] + "https://github.com/boostorg/boost/archive/boost-1.67.0.tar.gz",
+            url = "https://github.com/boostorg/boost/archive/boost-1.67.0.tar.gz",
             build_file = "@com_github_nelhage_rules_boost//:BUILD.boost",
             strip_prefix = "boost_1_67_0",
         )
